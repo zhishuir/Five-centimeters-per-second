@@ -22,7 +22,7 @@ class Game:
         pygame.display.set_caption("秒速五厘米")
 
         # 加载字体
-        font_path = resource_path("simhei.ttf")
+        font_path = resource_path("res/simhei.ttf")
         if not os.path.isfile(font_path):
             print(f"字体文件 {font_path} 不存在，请确保字体文件在项目目录中。")
             pygame.quit()
@@ -369,8 +369,10 @@ class Game:
                     ]
                 )
                 self.play_video_and_audio("res/下车要见明里了.mp4", "res/下车要见明里了.mp3",swipe_scenes=[
-                        {'time': 4, 'direction': 'up'}
-                    ])
+                        {'time': 5, 'direction': 'up'}
+                    ],pause_scenes=[
+                    {'time': 24, 'message': "点击镜子审视"}
+    ])
                 self.play_video_and_audio("res/再次晚点.mp4", "res/再次晚点.mp3",
                 swipe_scenes=[
                     {'time': 36, 'direction': 'down'}
@@ -403,8 +405,10 @@ class Game:
                 ]
             )
             self.play_video_and_audio("res/下车要见明里了.mp4", "res/下车要见明里了.mp3",swipe_scenes=[
-                        {'time': 4, 'direction': 'up'}
-                    ])
+                        {'time': 5, 'direction': 'up'}
+                    ],pause_scenes=[
+        {'time': 24, 'message': "点击镜子审视"}
+    ])
             self.play_video_and_audio("res/再次晚点.mp4", "res/再次晚点.mp3",
                 swipe_scenes=[
                     {'time': 36, 'direction': 'down'}
