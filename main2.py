@@ -418,9 +418,8 @@ class Game:
                 ],pause_scenes=[
         {'time': 99, 'message': "点击叫明里名字"}
     ])
-            self.show_text_screen("成就达成", "樱花的秒速是每秒五厘米，那么两颗心要多久才能相遇...未完待续")
+            self.show_text_screen("成就达成", "樱花下落的秒速是秒速五厘米，那么两颗心要多久才能相遇...未完待续")
 
-        print("第二章结束，返回主程序。")
         pygame.quit()
         sys.exit()
 
