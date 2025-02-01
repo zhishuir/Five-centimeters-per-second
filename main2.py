@@ -2,6 +2,7 @@ import pygame
 import cv2
 import sys
 import os
+from main3 import Game as Main3Game
 
 def resource_path(relative_path):
     """获取资源文件的绝对路径"""
@@ -350,7 +351,7 @@ class Game:
             self.show_text_screen("成就达成", "花开花落终有时，相逢相聚本无意")
         elif choice == "表达转学":
             self.play_video_and_audio("res/突然转学.mp4", "res/突然转学.mp3")
-            choice2 = self.display_choices(["写信沟通", "另做打算"])
+            choice2 = self.display_choices(["写信沟通", "不再联系"])
             if choice2 == "写信沟通":
                 self.play_video_and_audio("res/再次写给明里.mp4", "res/再次写给明里.mp3")
                 self.play_video_and_audio("res/天冷最近还好吗.mp4", "res/天冷最近还好吗.mp3")
@@ -386,10 +387,17 @@ class Game:
                                           ], pause_scenes=[
                         {'time': 99, 'message': "点击叫明里名字"}
                     ])
-                self.show_text_screen("成就达成", "樱花的秒速是每秒五厘米，那么两颗心要多久才能相遇...未完待续")
-            elif choice2 == "另做打算":
+                self.show_text_screen("第二章", "宇航员")
+                new_game = Game(screen_width, screen_height)
+                new_game.chapter_three()
+                new_game = Main3Game(self.screen_width, self.screen_height)
+                new_game.chapter_three()
+            elif choice2 == "不再联系":
                 self.play_video_and_audio("res/一年没见.mp4", "res/一年没见.mp3")
                 self.show_text_screen("成就达成", "渐行渐远渐无书，水阔鱼沉何处问")
+                new_game = Main3Game(self.screen_width, self.screen_height)
+                new_game.chapter_three()
+
         elif choice == "隐瞒转学":
             self.play_video_and_audio("res/谢谢你的回信.mp4", "res/谢谢你的回信.mp3")
             self.play_video_and_audio(
@@ -422,7 +430,9 @@ class Game:
                 ],pause_scenes=[
         {'time': 99, 'message': "点击叫明里名字"}
     ])
-            self.show_text_screen("成就达成", "樱花下落的秒速是秒速五厘米，那么两颗心要多久才能相遇...未完待续")
+            self.show_text_screen("第二章", "宇航员")
+            new_game = Main3Game(self.screen_width, self.screen_height)
+            new_game.chapter_three()
 
         pygame.quit()
         sys.exit()
