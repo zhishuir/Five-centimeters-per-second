@@ -26,7 +26,7 @@ class Game:
         pygame.display.set_caption("秒速五厘米")
 
         # 加载字体
-        font_filename = 'simhei.ttf'
+        font_filename = 'res/simhei.ttf'
         font_path = resource_path(font_filename)
         if not os.path.isfile(font_path):
             print(f"字体文件 {font_path} 不存在，请确保字体文件在项目目录中。")
@@ -157,7 +157,6 @@ class Game:
             self.audio_loaded = False
 
     def stop_audio(self):
-        """停止音频播放"""
         pygame.mixer.music.stop()
 
     def detect_swipe(self, event, direction="right"):
@@ -281,7 +280,7 @@ class Game:
                     self.screen.blit(self.last_frame_surface, (self.x_offset, self.y_offset))
                 self.draw_swipe_trail()  # 绘制滑动轨迹
                 prompt_text = self.font_small.render(
-                    "请向右滑动继续" if self.state == "swipe_1" else "请向右上滑动继续", True, self.prompt_text_color
+                    "将鼠标放置中心，向右滑动继续" if self.state == "swipe_1" else "请向右上滑动继续", True, self.prompt_text_color
                 )
                 prompt_rect = prompt_text.get_rect(center=(self.screen_width // 2, self.screen_height // 2))
                 self.screen.blit(prompt_text, prompt_rect)
